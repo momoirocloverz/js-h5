@@ -1,0 +1,399 @@
+.help-farmer-container {
+  // 通用样式
+  margin: 0.3rem 0.3rem 1.5rem;
+
+  div {
+    box-sizing: border-box;
+  }
+
+  .panel {
+    box-sizing: border-box;
+    margin-bottom: 0.3rem;
+    background: #fff;
+    border-radius: 0.16rem;
+    position: relative;
+
+    .form-conatiner {
+      .van-form {
+        .van-field {
+          flex-direction: column;
+        }
+      }
+    }
+
+    .form-title {
+      padding: 0.3rem;
+      font-size: 0.34rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .right {
+        display: flex;
+        align-items: center;
+      }
+
+      .fill-btn {
+        display: inline-block;
+        text-decoration: underline;
+        color: #1b82ec;
+        font-size: 0.26rem;
+        font-weight: normal;
+        margin-right: 0.2rem;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      .policy-btn {
+        width: 1.6rem;
+        height: 0.5rem;
+        border-radius: 0.25rem;
+        background: #fff;
+        border: 0.01rem solid #1b82ec;
+        color: #1b82ec;
+        font-size: 0.26rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .record {
+        width: 1.6rem;
+        height: 0.5rem;
+        background: #1b82ec;
+        border: 1px solid #1b82ec;
+        border-radius: 0.3rem;
+        color: #fff;
+        font-size: 0.26rem;
+        text-align: center;
+        line-height: 0.5rem;
+      }
+    }
+  }
+
+  .bottom-btn {
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+    .btn {
+      height: 0.88rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background-color: #1b82ec;
+      font-size: 0.32rem;
+
+      &.plain {
+        background-color: #fff;
+        color: #1b82ec;
+        border: 0.02rem solid #1b82ec;
+      }
+    }
+  }
+
+  // vant表单样式
+  .van-cell_noname {
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .van-cell__title {
+      display: none;
+    }
+
+    .van-field {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .van-cell__title {
+    margin-bottom: 0.2rem;
+  }
+
+  .van-field__control {
+    height: 0.8rem;
+    background: #f9f9f9;
+    border: 0.01rem solid #cccccc;
+    padding: 0 0.2rem;
+  }
+
+  .van-cell {
+    &::after {
+      content: none;
+    }
+
+    // radio样式
+    .van-radio-group {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .van-radio {
+        width: 2.85rem;
+        height: 0.6rem;
+        background: #ffffff;
+        border: 0.01rem solid #1b82ec;
+        margin-right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .van-radio__icon {
+          display: none;
+        }
+
+        .van-radio__label {
+          margin-left: 0;
+          color: #1b82ec;
+        }
+
+        &[aria-checked='true'] {
+          background: rgba(27, 130, 236, 0.14);
+        }
+      }
+    }
+  }
+
+  .text-area {
+    .van-field__control {
+      padding: 0.2rem 0.3rem;
+    }
+  }
+
+  .uploader-field {
+    .van-field__control {
+      height: auto;
+      background: #fff;
+      border: none;
+      padding: 0;
+    }
+  }
+
+  // 步骤条样式
+  .approval-process {
+    padding-bottom: 0.1rem;
+
+    .van-steps {
+      .van-steps__items {
+        .van-hairline {
+          &::after {
+            content: none;
+          }
+
+          &.van-step--finish {
+            .van-step__circle {
+              font-size: 0.3rem;
+            }
+          }
+
+          .van-step__circle-container {
+            .van-badge__wrapper,
+            .van-step__circle {
+              width: 0.3rem;
+              height: 0.3rem;
+            }
+          }
+        }
+      }
+    }
+
+    .title {
+      font-size: 0.28rem;
+      font-weight: bold;
+      color: #333333;
+      margin-bottom: 0.1rem;
+    }
+
+    .operation,
+    .opinion,
+    .time {
+      font-size: 0.24rem;
+      color: #999999;
+
+      .link {
+        color: #1b82ec;
+
+        &.doc {
+          margin-left: 0.2rem;
+
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
+    .operation,
+    .opinion {
+      margin-bottom: 0.1rem;
+      word-wrap: break-word;
+      word-break: break-all;
+    }
+
+    .dot {
+      width: 0.3rem;
+      height: 0.3rem;
+      background: #a8caff;
+      border-radius: 51%;
+
+      &.done {
+        background: #0d73ff;
+      }
+    }
+  }
+
+  .publishCircle {
+    position: fixed;
+    right: 0;
+    bottom: 210px;
+    z-index: 2;
+    width: 1.44rem;
+    height: 1.44rem;
+    background-color: #fff;
+    border-radius: 0.72rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    background: url('https://img.hzanchu.com/acimg/c9f781d6fec5ef2d76f46689b9e15d99.png') no-repeat;
+    background-size: 100% 100%;
+
+    .tel-link,
+    .contact-btn-zlb {
+      width: 100%;
+      height: 100%;
+      border-radius: 51%;
+    }
+  }
+
+  // 惠农政策表单页面适老化样式
+  &.fit-old {
+    .panel {
+      .form-title {
+        padding: 0.3rem;
+        font-size: 0.42rem;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .policy-btn {
+          width: 2rem;
+          height: 0.5rem;
+          font-size: 0.38rem !important;
+        }
+      }
+
+      .van-cell {
+        .van-cell__title {
+          label {
+            font-size: 0.3rem;
+          }
+        }
+
+        .van-field__control {
+          font-size: 0.34rem !important;
+        }
+      }
+
+      .batch-content {
+        .batch-item {
+          .del-btn {
+            font-size: 0.36rem;
+          }
+        }
+
+        .add-batch {
+          .icon {
+            width: 0.4rem;
+            height: 0.4rem;
+          }
+
+          .add-text {
+            font-size: 0.36rem;
+          }
+        }
+      }
+    }
+
+    .approval-process {
+      .van-steps {
+        margin-left: 0.2rem;
+
+        .van-steps__items {
+          .van-hairline {
+            &.van-step--finish {
+              .van-step__circle {
+                font-size: 0.44rem;
+              }
+            }
+
+            .van-step__circle-container {
+              .van-badge__wrapper,
+              .van-step__circle {
+                width: 0.44rem;
+                height: 0.44rem;
+              }
+            }
+          }
+        }
+
+        .title {
+          font-size: 0.38rem;
+          font-weight: bold;
+          color: #333333;
+          margin-bottom: 0.1rem;
+        }
+
+        .operation,
+        .opinion,
+        .time {
+          font-size: 0.34rem;
+          color: #999999;
+
+          .link {
+            color: #1b82ec;
+          }
+        }
+
+        .operation,
+        .opinion {
+          margin-bottom: 0.1rem;
+        }
+
+        .dot {
+          width: 0.44rem;
+          height: 0.44rem;
+          background: #a8caff;
+          border-radius: 51%;
+
+          &.done {
+            background: #0d73ff;
+          }
+        }
+      }
+    }
+
+    .bottom-btn {
+      .btn {
+        font-size: 0.44rem;
+      }
+    }
+  }
+}

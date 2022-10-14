@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no,viewport-fit=cover " />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title>江农投</title>
+    <link href="./reset.css" rel="stylesheet" />
+</head>
+
+<body>
+    <noscript>
+        <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without
+                JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <script type="text/javascript" src="./zwjsbridge.js"></script>
+    <!-- <script type="text/javascript" src="./acol.min.js"></script> -->
+    <link href="./mapModule/plugin/gis/openlayers/6.5.0/ol.css" rel="stylesheet">
+    <script type="text/javascript" src="./mapModule/plugin/gis/openlayers/6.5.0/ol.js"></script>
+    <script type="text/javascript" src="./mapModule/plugin/web/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="./mapModule/plugin/gis/turf/5.1.6/turf.min.js"></script>
+    <script type="text/javascript" src="./mapModule/plugin/gis/acol/acol.min.js"></script>
+    <!-- <script type="text/javascript" src="./mapModule/plugin/js/message.js"></script> -->
+    <script type="text/javascript" src="./mapModule/data/geoJson/first.js"></script>
+    <script type="text/javascript" src="./mapModule/data/geoJson/second.js"></script>
+    <script type="text/javascript" src="./mapModule/data/geoJson/third.js"></script>
+    <script type="text/javascript" src="./mapModule/data/geoJson/real.js"></script>
+    <script src="https://assets.zjzwfw.gov.cn/assets/ZWJSBridge/1.0.1/zwjsbridge.js"
+        integrity="sha384-2YAPEOlk+AVeawlk3XiRIgPAyoNZZ2/KwDeKEBmNsxiqj0ZMJSXL5JvU8qCa8Ew4"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        ; (function (w, d, s, q, i) {
+            w[q] = w[q] || []
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s)
+            j.async = true
+            j.id = 'beacon-aplus'
+            j.src = 'https://d.alicdn.com/alilog/mlog/aplus.js?id=202951085'
+            j.integrity = 'sha384-6C7rxaju6RuVQfD7yOPaXnlVw7+MHraw0J40wpHn3z0fpJAbp3e1Hiq5WnJtzwgW'
+            j.crossorigin = 'anonymous'
+            f.parentNode.insertBefore(j, f)
+        })(window, document, 'script', 'aplus_queue')
+        aplus_queue.push({
+            action: 'aplus.setMetaInfo',
+            arguments: ['aplus-rhost-v', 'alog.zjzwfw.gov.cn'],
+        })
+        aplus_queue.push({
+            action: 'aplus.setMetaInfo',
+            arguments: ['aplus-rhost-g', 'alog.zjzwfw.gov.cn'],
+        })
+        aplus_queue.push({
+            action: 'aplus.setMetaInfo',
+            arguments: ['appId', '60506758'],
+        })
+        ZWJSBridge.onReady(() => {
+            console.log('%chtml初始化Bridge', 'color:#f936e0')
+            ZWJSBridge.getLocation().then(res => {
+                ZWJSBridge.getUserType({})
+                    .then(ress => {
+                        // 单页应用路由切换后 或 在异步获取到 pv 日志所需的参数后再执行 sendPV：
+                        aplus_queue.push({
+                            action: 'aplus.sendPV',
+                            arguments: [
+                                {
+                                    is_auto: false,
+                                },
+                                {
+                                    // 自定义 PV 参数 key-value 键值对（只能是这种平铺的 json，不能做多层嵌套），如：
+                                    miniAppId: '2001923948',
+                                    miniAppName: '江农投',
+                                    userType: ress.userType,
+                                    long: res.longitude,
+                                    lati: res.latitude,
+                                },
+                            ],
+                        })
+                    })
+                    .catch(err => {
+                        console.log(`%c获取用户信息错误`, 'color:#f00')
+                        console.log(err)
+                    })
+            })
+        })
+    </script>
+    <script>
+            ; (function (doc, win) {
+                var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth
+                        if (!clientWidth) return
+                        if (clientWidth >= 750) {
+                            docEl.style.fontSize = '100px'
+                        } else {
+                            docEl.style.fontSize = 100 * (clientWidth / 750) + 'px'
+                        }
+                    }
+                if (!doc.addEventListener) return
+                win.addEventListener(resizeEvt, recalc, false)
+                doc.addEventListener('DOMContentLoaded', recalc, false)
+            })(document, window)
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/eruda"></script> -->
+    <!-- <script type="text/javascript" src="./eruda.js"></script>
+    <script>
+        var sUserAgent = window.navigator.userAgent.toLowerCase()
+        var bIsDtDreamApp = sUserAgent.indexOf('dtdreamweb') > -1 // 浙里办APP
+        var bIsAlipayMini = sUserAgent.indexOf('miniprogram') > -1 && sUserAgent.indexOf('alipay') > -1
+        if (bIsDtDreamApp || bIsAlipayMini) {
+            eruda.init();
+        }
+    </script> -->
+    <!-- built files will be auto injected -->
+</body>
+
+</html>

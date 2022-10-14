@@ -1,0 +1,103 @@
+// 引入字体
+@font-face {
+  font-family: YouSheBiaoTiHei;
+  src: url("~@/assets/YouSheBiaoTiHei.ttf");
+  font-style: normal;
+}
+
+@scale: 2;
+.a {
+  b {
+    color: #1b82ec;
+  }
+}
+
+.scale1 { // 正常字体大小
+  .scale(1);
+}
+
+.scale2 { // 1.5倍字体大小 适老化
+  .scale(1.5);
+}
+
+.newScale(@name,@num,@multiple) {
+    @{name}: @num * @multiple;
+}
+
+// 缩放
+.scale(@scale:1) {
+  // 明白纸 列表1
+  .listCon .itemCon .itemInnerCon .title {
+    font-size: 0.28rem  * @scale !important;
+    line-height: 0.36rem * @scale !important;
+  }
+  .listCon .itemCon .itemInnerCon .time {
+    font-size: 0.24rem  * @scale !important;
+    line-height: 0.48rem * @scale !important;
+  }
+  .masterCon .declare_form .search .van-icon-search {
+    font-size: 0.3rem * @scale !important;
+    left: 0.2rem  * @scale !important;
+  }
+  .masterCon .declare_form .search input {
+    text-indent: 0.6rem* @scale !important;
+    height: 0.66rem* @scale !important;
+    border-radius: 0.3rem* @scale !important;
+  }
+  .masterCon .declare_form .search span {
+    font-size: 0.28rem  * @scale !important;
+    margin-left: 0.3rem * @scale !important;
+  }
+  // 明白纸详情
+  .tagText {
+    font-size: 0.34rem * @scale !important;
+    line-height: 0.45rem * @scale !important;
+  }
+  .tagTextS {
+    font-size: 0.3rem * @scale !important;
+
+  }
+  .masterInner .contentCon .con {
+    font-size: 0.28rem * @scale !important;
+  }
+  .masterInner .contentCon .con p span {
+    font-size: 0.28rem * @scale !important;
+    line-height: 0.45rem * @scale !important;
+  }
+  .tagLine {
+    width: 0.05rem * @scale !important;
+    height: 0.3rem * @scale !important;
+    border-radius: 0.03rem  * @scale !important;
+    margin-right: 0.06rem * @scale !important;
+  }
+  .timeCon {
+    font-size: 0.26rem * @scale !important;
+  }
+  .contentCon {
+    font-size: .28rem* @scale !important;
+    line-height: .4rem* @scale !important;
+  }
+}
+// 适配iphone机型底部的安全区
+.fixPaddingBottom {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+// 统一所有tab样式
+.firstTab {
+  .van-tabs__line {
+    background-color: #1b82ec;
+  }
+  .van-tab--active {
+    color: #1b82ec;
+  }
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
